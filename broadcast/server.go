@@ -70,7 +70,7 @@ func channel(c *gin.Context) {
 	defer ws.Close()
 
 	var transport *mediaserver.Transport
-	endpoint := mediaserver.NewEndpoint("127.0.0.1")
+	endpoint := mediaserver.NewEndpoint("tizi.sunbin123.xyz")
 
 	for {
 		// read json
