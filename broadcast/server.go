@@ -97,6 +97,7 @@ func channel(c *gin.Context) {
 			transport.SetLocalProperties(answer.GetMedia("audio"), answer.GetMedia("video"))
 
 			for _, stream := range offer.GetStreams() {
+				fmt.Println("stream-GetID", stream.GetID())
 				incomingStream := transport.CreateIncomingStream(stream)
 				incomingStreams[incomingStream.GetID()] = incomingStream
 			}
@@ -159,5 +160,6 @@ func main() {
 	r.GET("/channel", channel)
 	r.GET("/watch/:stream", watch)
 	r.GET("/", publish)
-	r.Run(address)
+	//r.Run(address)
+	r.RunTLS(address, "/home/vpsadmin/.acme.sh/tizi.sunbin123.xyz_ecc/tizi.sunbin123.xyz.cer", "/home/vpsadmin/.acme.sh/tizi.sunbin123.xyz_ecc/tizi.sunbin123.xyz.key")
 }
