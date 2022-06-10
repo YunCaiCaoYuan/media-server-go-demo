@@ -71,7 +71,7 @@
 
             socket.onmessage  = async (event) =>{
                 var data = JSON.parse(event.data);
-                console.log(data);
+                console.log("onmessage-data=", data);
 
                 if (data.sdp) {
                     //Create answer
