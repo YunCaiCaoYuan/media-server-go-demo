@@ -46,7 +46,6 @@
 
 			const socket = new WebSocket('wss://tizi.sunbin123.xyz:8000/channel');
 
-
 			socket.onopen =  async () => {
 
 				pc.ontrack = function(event) {
@@ -80,7 +79,7 @@
 						type	:'answer',
 						sdp	: data.sdp
 					});
-					console.debug(answer.sdp);
+					console.debug("onmessage-answer.sdp=", answer.sdp);
 					await pc.setRemoteDescription(answer);
 
 				}
