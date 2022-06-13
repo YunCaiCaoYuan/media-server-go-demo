@@ -76,7 +76,7 @@ func channel(c *gin.Context) {
 	defer ws.Close()
 
 	var transport *mediaserver.Transport
-	endpoint := mediaserver.NewEndpoint("127.0.0.1")
+	endpoint := mediaserver.NewEndpoint("tizi.sunbin123.xyz")
 
 	for {
 		// read json
@@ -118,10 +118,10 @@ func channel(c *gin.Context) {
 			// now lets test webrtc server to webrtc server
 			time.Sleep(10 * time.Second)
 
-			endpointA := mediaserver.NewEndpoint("127.0.0.1")
+			endpointA := mediaserver.NewEndpoint("tizi.sunbin123.xyz")
 			offerA := endpointA.CreateOffer(Capabilities["video"], Capabilities["audio"])
 
-			endpointB := mediaserver.NewEndpoint("127.0.0.1")
+			endpointB := mediaserver.NewEndpoint("tizi.sunbin123.xyz")
 			transportB := endpointB.CreateTransport(offerA, nil, true)
 			transportB.SetRemoteProperties(offerA.GetAudioMedia(), offerA.GetVideoMedia())
 
@@ -170,5 +170,6 @@ func main() {
 	r.LoadHTMLFiles("./index.html")
 	r.GET("/channel", channel)
 	r.GET("/", index)
-	r.Run(address)
+	//r.Run(address)
+	r.RunTLS(address, "/home/vpsadmin/.acme.sh/tizi.sunbin123.xyz_ecc/tizi.sunbin123.xyz.cer", "/home/vpsadmin/.acme.sh/tizi.sunbin123.xyz_ecc/tizi.sunbin123.xyz.key")
 }
