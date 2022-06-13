@@ -10,7 +10,6 @@ import (
 	"github.com/gorilla/websocket"
 	mediaserver "github.com/notedit/media-server-go"
 	"github.com/notedit/sdp"
-	"github.com/sanity-io/litter"
 	"go.uber.org/zap"
 )
 
@@ -131,7 +130,8 @@ func channel(c *gin.Context) {
 			transport.SetLocalProperties(answer.GetMedia("audio"), answer.GetMedia("video"))
 
 			if incomingStream, ok := incomingStreams[msg.StreamID]; ok {
-				litter.Dump(incomingStream.GetStreamInfo())
+				//litter.Dump(incomingStream.GetStreamInfo())
+				logger.Info("watch-incomingStream", zap.Any("incomingStream", incomingStream))
 				outgoingStream := transport.CreateOutgoingStream(incomingStream.GetStreamInfo())
 				outgoingStream.AttachTo(incomingStream)
 				answer.AddStream(outgoingStream.GetStreamInfo())
