@@ -12,4 +12,8 @@ broadcast  the publisher to watchers.
     ```
     Note: need to click the button to play the video.
     ```
+  
+
+## 备注：
+  watch端ice失败。
 
