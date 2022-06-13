@@ -15,6 +15,7 @@ require (
 	github.com/pion/rtp v1.4.0
 	github.com/pion/webrtc/v2 v2.2.8
 	github.com/sanity-io/litter v1.1.0
+	go.uber.org/zap v1.21.0
 )
 
 replace github.com/notedit/media-server-go v0.1.18 => ../media-server-go
