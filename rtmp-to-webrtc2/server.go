@@ -182,6 +182,6 @@ func main() {
 
 	go startRtmp()
 
-	r.Run(address)
-
+	//r.Run(address)
+	r.RunTLS(address, "/home/vpsadmin/.acme.sh/tizi.sunbin123.xyz_ecc/tizi.sunbin123.xyz.cer", "/home/vpsadmin/.acme.sh/tizi.sunbin123.xyz_ecc/tizi.sunbin123.xyz.key")
 }
