@@ -115,6 +115,7 @@ func channel(c *gin.Context) {
 		if msg.Cmd == "watch" {
 
 			offer, err := sdp.Parse(msg.Sdp)
+			logger.Info("watch-offer", zap.Any("offer", offer))
 			if err != nil {
 				panic(err)
 			}
