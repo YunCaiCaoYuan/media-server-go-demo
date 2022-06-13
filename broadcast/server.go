@@ -161,7 +161,7 @@ func watch(c *gin.Context) {
 var logger Logger.logger
 
 func main() {
-	logger, _ := zap.NewProduction()
+	logger, _ = zap.NewProduction()
 	godotenv.Load()
 	address := ":8000"
 	if os.Getenv("port") != "" {
