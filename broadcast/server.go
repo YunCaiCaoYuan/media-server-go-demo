@@ -158,6 +158,8 @@ func watch(c *gin.Context) {
 	c.HTML(http.StatusOK, "watch.html", gin.H{})
 }
 
+var logger Logger.logger
+
 func main() {
 	logger, _ := zap.NewProduction()
 	godotenv.Load()
