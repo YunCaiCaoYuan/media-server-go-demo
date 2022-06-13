@@ -55,7 +55,7 @@
 
 			socket.onopen =  async () => {
 
-				pc.ontrack = function(event) {
+				pc.onaddstream = function(event) {
 					console.debug("pc::onAddStream",event);
 					//Play it
 					playVideo(event.stream);
