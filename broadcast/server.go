@@ -86,12 +86,12 @@ func channel(c *gin.Context) {
 			if err != nil {
 				panic(err)
 			}
-			localSdp := offer.Answer(
-				transport.GetLocalICEInfo(),
-				transport.GetLocalDTLSInfo(), //DTLS 是指 Datagram Transport Level Security，即数据报安全传输协议； 其提供了UDP 传输场景下的安全解决方案，能防止消息被窃听、篡改、身份冒充等问题。
-				endpoint.GetLocalCandidates(),
-				Capabilities)
-			transport = endpoint.CreateTransport(offer, localSdp)
+			//localSdp := offer.Answer(
+			//	transport.GetLocalICEInfo(),
+			//	transport.GetLocalDTLSInfo(), //DTLS 是指 Datagram Transport Level Security，即数据报安全传输协议； 其提供了UDP 传输场景下的安全解决方案，能防止消息被窃听、篡改、身份冒充等问题。
+			//	endpoint.GetLocalCandidates(),
+			//	Capabilities)
+			transport = endpoint.CreateTransport(offer, nil)
 			transport.SetRemoteProperties(offer.GetMedia("audio"), offer.GetMedia("video"))
 
 			answer := offer.Answer(
