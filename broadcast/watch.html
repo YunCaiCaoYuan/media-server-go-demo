@@ -62,8 +62,8 @@
 				};
 
 				const offer = await pc.createOffer({
-					offerToReceiveAudio:1,
-					offerToReceiveVideo:1
+					offerToReceiveAudio:true,
+					offerToReceiveVideo:true
 				})
 
 				await pc.setLocalDescription(offer)
