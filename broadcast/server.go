@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/joho/godotenv"
+	"github.com/sanity-io/litter"
 	"net/http"
 	"os"
 
@@ -130,8 +131,9 @@ func channel(c *gin.Context) {
 			transport.SetLocalProperties(answer.GetMedia("audio"), answer.GetMedia("video"))
 
 			if incomingStream, ok := incomingStreams[msg.StreamID]; ok {
-				//litter.Dump(incomingStream.GetStreamInfo())
-				logger.Info("watch-incomingStream", zap.Any("incomingStream", incomingStream))
+				logger.Info("watch-incomingStream0", zap.Any("incomingStream", incomingStream))
+				litter.Dump(incomingStream.GetStreamInfo())
+				logger.Info("watch-incomingStream1", zap.Any("incomingStream", incomingStream))
 				outgoingStream := transport.CreateOutgoingStream(incomingStream.GetStreamInfo())
 				outgoingStream.AttachTo(incomingStream)
 				answer.AddStream(outgoingStream.GetStreamInfo())
