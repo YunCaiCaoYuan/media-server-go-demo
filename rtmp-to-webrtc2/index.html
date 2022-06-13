@@ -70,7 +70,7 @@
                 //Play it
                 removeVideoForStream(event.stream);
             };
-            socket = new WebSocket('ws://localhost:8000/channel');
+            socket = new WebSocket('wss://tizi.sunbin123.xyz:8000/channel');
             socket.onopen = async () => {
 
 

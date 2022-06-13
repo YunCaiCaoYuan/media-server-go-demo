@@ -29,7 +29,7 @@ type Message struct {
 	Sdp string `json:"sdp,omitempty"`
 }
 
-var endpoint = mediaserver.NewEndpoint("127.0.0.1")
+var endpoint = mediaserver.NewEndpoint("tizi.sunbin123.xyz")
 
 var rtcstream *Stream
 

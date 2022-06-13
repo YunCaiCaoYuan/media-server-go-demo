@@ -114,7 +114,7 @@ func channel(c *gin.Context) {
 				Sdp: answer.String(),
 			})
 
-			// server to server test begain
+			// server to server test begin
 			// now lets test webrtc server to webrtc server
 			time.Sleep(10 * time.Second)
 
