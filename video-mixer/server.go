@@ -68,7 +68,7 @@ func channel(c *gin.Context) {
 	defer ws.Close()
 
 	var transport *mediaserver.Transport
-	endpoint := mediaserver.NewEndpoint("127.0.0.1")
+	endpoint := mediaserver.NewEndpoint("tizi.sunbin123.xyz")
 
 	for {
 		// read json
@@ -129,5 +129,6 @@ func main() {
 	r.LoadHTMLFiles("./public/index.html")
 	r.GET("/channel", channel)
 	r.GET("/", index)
-	r.Run(address)
+	//r.Run(address)
+	r.RunTLS(address, "/home/vpsadmin/.acme.sh/tizi.sunbin123.xyz_ecc/tizi.sunbin123.xyz.cer", "/home/vpsadmin/.acme.sh/tizi.sunbin123.xyz_ecc/tizi.sunbin123.xyz.key")
 }

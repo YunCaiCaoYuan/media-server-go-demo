@@ -40,7 +40,7 @@
         document.getElementById('remote').appendChild(video);
     }
 
-    async function connect() 
+    async function connect()
     {
         const canvas = new fabric.Canvas('c');
         var video1El = document.getElementById('video1');
@@ -102,7 +102,7 @@
         container = document.getElementById('container');
 
         var pc = new RTCPeerConnection();
-        socket = new WebSocket('ws://localhost:8000/channel');
+        socket = new WebSocket('wss://tizi.sunbin123.xyz:8000/channel');
 
 
         pc.onaddstream = function(event) {
@@ -110,7 +110,7 @@
             //Play it
             addVideoForStream(event.stream);
         };
-        
+
 
         socket.onopen = async () => {
 
@@ -140,9 +140,9 @@
                 const answer = new RTCSessionDescription({
                     type	:'answer',
                     sdp	: data.sdp
-                }); 
+                });
                 console.debug(answer.sdp);
-                await pc.setRemoteDescription(answer); 
+                await pc.setRemoteDescription(answer);
             }
         };
     }
@@ -154,7 +154,7 @@
     <video height="360" width="480" id="video1" style="display: none" muted loop>
     <source src="http://localhost:8000/public/dizzy.mp4">
     </video>
-    
+
     <video height="360" width="640" id="video2" style="display: none" muted loop>
     <source src="http://localhost:8000/public/big_buck_bunny.mp4">
     </video>
