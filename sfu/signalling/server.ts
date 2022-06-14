@@ -46,13 +46,13 @@ socketServer.on('connection', async (socket: SocketIO.Socket) => {
         }
 
         room.set(peerId, peerData)
-        socket.join(roomId)
+        socket.join(roomId) // ???
 
         let info = {
             roomId: roomId,
             streams: []
         }
-    
+
         for (let peer of room.values()) {
             for (let stream of peer.streams.keys()) {
                 info.streams.push({
@@ -70,9 +70,9 @@ socketServer.on('connection', async (socket: SocketIO.Socket) => {
         const sdp = data.sdp
         const publisherId = data.stream.publisherId
         const streamData = data.stream.data
-    
+
         const ret = await request.publish(publisherId,sdp,streamData)
-    
+
         const answer = ret.sdp
         const streamId = ret.streamId
 
@@ -111,7 +111,7 @@ socketServer.on('connection', async (socket: SocketIO.Socket) => {
 
     })
 
-    
+
     socket.on('subscribe', async (data:any, ack:Function) => {
 
         const sdp = data.sdp
@@ -180,7 +180,7 @@ const getPublisher = (roomId:string, publisherId:string) => {
 
     if (!room) {
         return {}
-    } 
+    }
 
     for (let peer of room.values()) {
         for (let stream of peer.streams.keys()) {

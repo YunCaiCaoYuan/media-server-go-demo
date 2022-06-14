@@ -173,5 +173,6 @@ func main() {
 	r.POST("/api/unplay", unplay)
 	r.POST("/api/offer", offer)
 
-	r.Run(":5000")
+	//r.Run(":5000")
+	r.RunTLS(":5000", "/home/vpsadmin/.acme.sh/tizi.sunbin123.xyz_ecc/tizi.sunbin123.xyz.cer", "/home/vpsadmin/.acme.sh/tizi.sunbin123.xyz_ecc/tizi.sunbin123.xyz.key")
 }

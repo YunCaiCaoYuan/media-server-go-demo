@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 
-const baseURL = 'http://localhost:5000'
+const baseURL = 'https://tizi.sunbin123.xyz:5000'
 
 
 const publish = async (streamId: string, sdp: string, data?:any) => {
@@ -12,7 +12,7 @@ const publish = async (streamId: string, sdp: string, data?:any) => {
         body: JSON.stringify({
             sdp: sdp,
             streamId: streamId,
-            data: data 
+            data: data
         })
     })
 
@@ -44,7 +44,7 @@ const play = async (streamId: string, sdp: string) => {
 
     // const sdp = req.body.sdp
     // const streamId = req.body.streamId
-    
+
     let res = await fetch(baseURL + '/api/play', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
@@ -57,14 +57,14 @@ const play = async (streamId: string, sdp: string) => {
     let ret = await res.json()
     console.dir(ret)
     return ret.d
-    
+
 }
 
 
 const unplay = async (streamId: string, outgoingId:string) => {
 
     // const streamId = req.body.streamId
-    // const outgoingId = req.body.outgoingId 
+    // const outgoingId = req.body.outgoingId
 
     let res = await fetch(baseURL + '/api/unplay', {
         method: 'post',
