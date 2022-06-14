@@ -43,7 +43,7 @@ var Capabilities = map[string]*sdp.Capability{
 }
 
 var routers = map[string]*MediaRouter{}
-var endpoint = mediaserver.NewEndpoint("127.0.0.1")
+var endpoint = mediaserver.NewEndpoint("tizi.sunbin123.xyz")
 
 func publish(c *gin.Context) {
 
