@@ -10,7 +10,7 @@
         function init() {
             var video_container = document.getElementById('video_container');
 
-            let socket = io('https://tizi.sunbin123.xyz:3000')
+            let socket = io('http://tizi.sunbin123.xyz:3000')
             socket.emit('join', {
                 roomId:1,
                 peerId:1
