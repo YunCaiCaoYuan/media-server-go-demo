@@ -27,6 +27,7 @@ interface Peer {
 }
 
 socketServer.on('connection', async (socket: SocketIO.Socket) => {
+    console.log("connection-socket=", socket)
 
     const roomId = socket.handshake.query.roomId
     const peerId = socket.handshake.query.peerId
