@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <title>Publish</title>
 
-    <script src="https://cdn.socket.io/4.5.0/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript">
 
         function init() {
             var video_container = document.getElementById('video_container');
 
             let socket = io('http://tizi.sunbin123.xyz:3000')
-            socket.emit('join', {
-                roomId:1,
-                peerId:1
-            })
+            socket.emit('join', {})
 
         }
 
